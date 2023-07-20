@@ -25,8 +25,8 @@ class RinconVC: UIViewController{
         tblRincon.estimatedRowHeight = 100
         
         // Register a UITableViewCell
-        tblRincon.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        tblRincon.register(PostCell.self, forCellReuseIdentifier: "PostCell")
+//        tblRincon.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tblRincon.register(PostCell.self, forCellReuseIdentifier: "PostCell")
 
         
         setup_vwVCHeaderOrange()
@@ -69,16 +69,15 @@ extension RinconVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let current_post = posts[indexPath.row]
-        
-
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-    
-        cell.textLabel?.text = current_post.post_id
-        if let unwp_lblPost = current_post.post_text_ios{
-            print("set cell with STyle")
-            cell.detailTextLabel?.text = unwp_lblPost
-            cell.detailTextLabel?.numberOfLines = 0
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        cell.configure(with: current_post)
+//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+//        cell.textLabel?.text = current_post.post_id
+//        if let unwp_lblPost = current_post.post_text_ios{
+//            print("set cell with STyle")
+//            cell.detailTextLabel?.text = unwp_lblPost
+//            cell.detailTextLabel?.numberOfLines = 0
+//        }
         return cell
 
     }

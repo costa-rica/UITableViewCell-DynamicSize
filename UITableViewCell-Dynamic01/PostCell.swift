@@ -22,16 +22,21 @@ class PostCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        stckVwPostCell.removeFromSuperview()
+        lblDate.removeFromSuperview()
+        lblPostText?.removeFromSuperview()
     }
     
     func configure(with post: Post) {
         self.post = post
         setup_stckVwPostCell()
         setup_lblDate()
+        setup_lblPostText()
     }
     
     func setup_stckVwPostCell(){
         stckVwPostCell.translatesAutoresizingMaskIntoConstraints = false
+        stckVwPostCell.axis = .vertical
         contentView.addSubview(stckVwPostCell)
         stckVwPostCell.topAnchor.constraint(equalTo: contentView.topAnchor).isActive=true
         stckVwPostCell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive=true
@@ -46,8 +51,8 @@ class PostCell: UITableViewCell {
         lblDate.semanticContentAttribute = .forceRightToLeft
         lblDate.translatesAutoresizingMaskIntoConstraints = false
         stckVwPostCell.addArrangedSubview(lblDate)
-        lblDate.sizeToFit()
-        post.cell_height = post.cell_height + lblDate.frame.size.height
+//        lblDate.sizeToFit()
+//        post.cell_height = post.cell_height + lblDate.frame.size.height
     }
     func setup_lblPostText(){
         if let unwrapped_postText = post.post_text_ios{
@@ -55,8 +60,8 @@ class PostCell: UITableViewCell {
             lblPostText!.translatesAutoresizingMaskIntoConstraints=false
             lblPostText!.text = unwrapped_postText
             lblPostText!.numberOfLines = 0
-            let _ = sizeLabel(lbl: lblPostText!)// <-- This correctly sizes lblPostText
-            post.cell_height = post.cell_height + lblPostText!.frame.size.height
+//            let _ = sizeLabel(lbl: lblPostText!)// <-- This correctly sizes lblPostText
+//            post.cell_height = post.cell_height + lblPostText!.frame.size.height
             
             stckVwPostCell.addArrangedSubview(lblPostText!)
         }
