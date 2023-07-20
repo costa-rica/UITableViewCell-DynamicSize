@@ -21,6 +21,8 @@
 		01E7EDDD2A692459002EC4BF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7EDDC2A692459002EC4BF /* Utilities.swift */; };
 		01E7EDDF2A692673002EC4BF /* RinconVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7EDDE2A692673002EC4BF /* RinconVC.swift */; };
 		01E7EDE12A69325F002EC4BF /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7EDE02A69325F002EC4BF /* PostCell.swift */; };
+		01E7EDE42A693772002EC4BF /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7EDE32A693772002EC4BF /* LikeView.swift */; };
+		01E7EDE62A693787002EC4BF /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7EDE52A693787002EC4BF /* CommentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		01E7EDDC2A692459002EC4BF /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		01E7EDDE2A692673002EC4BF /* RinconVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RinconVC.swift; sourceTree = "<group>"; };
 		01E7EDE02A69325F002EC4BF /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		01E7EDE32A693772002EC4BF /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
+		01E7EDE52A693787002EC4BF /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +115,7 @@
 			children = (
 				01E7EDA82A6922CE002EC4BF /* AppDelegate.swift */,
 				01E7EDAA2A6922CE002EC4BF /* SceneDelegate.swift */,
-				01E7EDAC2A6922CE002EC4BF /* LoginVC.swift */,
-				01E7EDDE2A692673002EC4BF /* RinconVC.swift */,
-				01E7EDE02A69325F002EC4BF /* PostCell.swift */,
+				01E7EDE22A69375E002EC4BF /* Views */,
 				01E7EDD82A6923A5002EC4BF /* RequestStore.swift */,
 				01E7EDDC2A692459002EC4BF /* Utilities.swift */,
 				01E7EDDA2A6923C3002EC4BF /* Post.swift */,
@@ -140,6 +142,18 @@
 				01E7EDCB2A6922D0002EC4BF /* UITableViewCell_Dynamic01UITestsLaunchTests.swift */,
 			);
 			path = "UITableViewCell-Dynamic01UITests";
+			sourceTree = "<group>";
+		};
+		01E7EDE22A69375E002EC4BF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01E7EDAC2A6922CE002EC4BF /* LoginVC.swift */,
+				01E7EDDE2A692673002EC4BF /* RinconVC.swift */,
+				01E7EDE02A69325F002EC4BF /* PostCell.swift */,
+				01E7EDE32A693772002EC4BF /* LikeView.swift */,
+				01E7EDE52A693787002EC4BF /* CommentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01E7EDE42A693772002EC4BF /* LikeView.swift in Sources */,
 				01E7EDDD2A692459002EC4BF /* Utilities.swift in Sources */,
 				01E7EDAD2A6922CE002EC4BF /* LoginVC.swift in Sources */,
 				01E7EDA92A6922CE002EC4BF /* AppDelegate.swift in Sources */,
@@ -280,6 +295,7 @@
 				01E7EDDF2A692673002EC4BF /* RinconVC.swift in Sources */,
 				01E7EDD92A6923A5002EC4BF /* RequestStore.swift in Sources */,
 				01E7EDDB2A6923C3002EC4BF /* Post.swift in Sources */,
+				01E7EDE62A693787002EC4BF /* CommentView.swift in Sources */,
 				01E7EDE12A69325F002EC4BF /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

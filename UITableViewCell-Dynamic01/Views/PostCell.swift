@@ -9,10 +9,20 @@ import UIKit
 
 class PostCell: UITableViewCell {
     
+    let screenWidth = UIScreen.main.bounds.width
     var post:Post!
     var stckVwPostCell=UIStackView()
     var lblDate=UILabel()
+    var lblUsername=UILabel()
     var lblPostText:UILabel?
+    
+    var lineImageImageView01: UIImageView!
+    
+    var stckVwUserInteraction=UIStackView()
+    var stckVwUserInteractionHeight:CGFloat!
+    var likeView:LikeView!
+    var commentView:CommentView!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -25,13 +35,19 @@ class PostCell: UITableViewCell {
         stckVwPostCell.removeFromSuperview()
         lblDate.removeFromSuperview()
         lblPostText?.removeFromSuperview()
+        
+        stckVwUserInteraction.removeFromSuperview()
+        likeView.removeFromSuperview()
+        commentView.removeFromSuperview()
     }
     
     func configure(with post: Post) {
         self.post = post
         setup_stckVwPostCell()
         setup_lblDate()
+        setup_lblUsername()
         setup_lblPostText()
+        setup_userInteractionStackView()
     }
     
     func setup_stckVwPostCell(){
@@ -54,6 +70,15 @@ class PostCell: UITableViewCell {
 //        lblDate.sizeToFit()
 //        post.cell_height = post.cell_height + lblDate.frame.size.height
     }
+    
+    func setup_lblUsername(){
+        lblUsername.text = post.username
+        lblUsername.translatesAutoresizingMaskIntoConstraints = false
+        lblUsername.font = lblUsername.font.withSize(12.0)
+        stckVwPostCell.addArrangedSubview(lblUsername)
+        lblUsername.sizeToFit()
+//        post.cell_height = post.cell_height + lblUsername.frame.size.height
+    }
     func setup_lblPostText(){
         if let unwrapped_postText = post.post_text_ios{
             lblPostText = UILabel()
@@ -65,6 +90,40 @@ class PostCell: UITableViewCell {
             
             stckVwPostCell.addArrangedSubview(lblPostText!)
         }
+    }
+    
+    func setup_userInteractionStackView(){
+        stckVwUserInteraction.axis = .horizontal
+//        stckVwUserInteraction.distribution = .equalSpacing
+        likeView = LikeView()
+        
+//        likeView.rinconStore = self.rinconStore
+        likeView.setup_view()
+        likeView.post = self.post
+        
+        commentView = CommentView()
+        commentView.post = post
+        commentView.setup_view()
+//        commentView.postCellDelegate = self
+        
+//        commentView.post = self.post
+        commentView.translatesAutoresizingMaskIntoConstraints=false
+        likeView.translatesAutoresizingMaskIntoConstraints=false
+        commentView.widthAnchor.constraint(equalToConstant: screenWidth/2).isActive=true
+        likeView.widthAnchor.constraint(equalToConstant: screenWidth/2).isActive=true
+
+        stckVwUserInteraction.addArrangedSubview(commentView)
+        stckVwUserInteraction.addArrangedSubview(likeView)
+        stckVwUserInteraction.translatesAutoresizingMaskIntoConstraints=false
+        stckVwPostCell.addArrangedSubview(stckVwUserInteraction)
+//        layoutIfNeeded()
+        print("stckVwUserInteraction.frame.height : \(stckVwUserInteraction.frame.height )")
+//        likeView.viewHeight
+        stckVwUserInteractionHeight = max(likeView.viewHeight, commentView.viewHeight)
+//        let stckVwUserInteractionHeight = 25.0
+//        post.cell_height = post.cell_height + stckVwUserInteractionHeight
+//        commentView.backgroundColor = .cyan
+//        likeView.backgroundColor = .gray
     }
     
 }
