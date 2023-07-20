@@ -26,6 +26,7 @@ class RinconVC: UIViewController{
         
         // Register a UITableViewCell
         tblRincon.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//        tblRincon.register(PostCell.self, forCellReuseIdentifier: "PostCell")
 
         
         setup_vwVCHeaderOrange()
@@ -69,39 +70,17 @@ extension RinconVC: UITableViewDataSource {
 
         let current_post = posts[indexPath.row]
         
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") {
-////            cell.textLabel?.text = item.title
-//            cell.textLabel?.text = current_post.post_id
-//            if let unwp_lblPost = current_post.post_text_ios{
-//                print("set cell no style")
-//                cell.detailTextLabel?.text = unwp_lblPost
-//                cell.detailTextLabel?.numberOfLines = 0
-//    //            cell.detailTextLabel?.translatesAutoresizingMaskIntoConstraints = false
-//            }
-//            return cell
-//        } else {
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-//            cell.textLabel?.text = item.title
-            cell.textLabel?.text = current_post.post_id
-            if let unwp_lblPost = current_post.post_text_ios{
-                print("set cell with STyle")
-                cell.detailTextLabel?.text = unwp_lblPost
-                cell.detailTextLabel?.numberOfLines = 0
-    //            cell.detailTextLabel?.translatesAutoresizingMaskIntoConstraints = false
-            }
-            return cell
-//        }
-        
-        
-        
-        
 
-//        if let rincons = userStore?.user?.user_rincons {
-//            let rincon = rincons[indexPath.row]
-//            cell.textLabel?.text = rincon[1] // Assuming second element is rincon_name
-//        }
-        
-//        return cell
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+    
+        cell.textLabel?.text = current_post.post_id
+        if let unwp_lblPost = current_post.post_text_ios{
+            print("set cell with STyle")
+            cell.detailTextLabel?.text = unwp_lblPost
+            cell.detailTextLabel?.numberOfLines = 0
+        }
+        return cell
+
     }
     
     
